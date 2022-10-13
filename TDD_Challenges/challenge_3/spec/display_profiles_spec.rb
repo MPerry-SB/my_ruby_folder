@@ -1,17 +1,18 @@
-require './lib/display_profiles.rb'
+require './lib/display_profiles'
 
 RSpec.describe DisplayProfiles do
-  it 'returns 123' do
+  it 'filters employee by age' do
+    hr_profile = {
+      pwu: { employee_id: 111, age: 65 },
+      jwatson: { employee_id: 456, age: 27 }
+    }
     described_class = DisplayProfiles.new
 
-    expect(described_class.my_method).to eq 123
+    result = described_class.my_method(hr_profile, age: 65)
+
+    expect(result).to eq 111
   end
 
-  example 'filter employees by age'
   example 'is employee working on a given date'
   example 'sort employees by location'
 end
-
-
-
-
