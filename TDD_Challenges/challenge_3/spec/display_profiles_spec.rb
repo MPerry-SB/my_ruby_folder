@@ -26,6 +26,20 @@ RSpec.describe DisplayProfiles do
     expect(result).to eq [111, 123]
   end
 
-  example 'is employee working on a given date'
+  it 'check if employee working on a given date' do 
+    holiday_list = [
+      [employee_id: 111, date: '2021-12-30'],
+      [employee_id: 222, date: '2021-12-29']
+    ]
+
+    described_class = DisplayProfiles.new
+    employee_id = 111
+    date = '2021-12-30'
+    result = described_class.is_employee_working?(holiday_list, date, employee_id)
+
+    expect(result).to eq true
+  end
+  
+  example 'checks if multiple employes are working on a given date'
   example 'sort employees by location'
 end

@@ -8,5 +8,15 @@ class DisplayProfiles
     end
     results
   end
+
+  def is_employee_working?(holiday_list, date, employee_id)
+    holiday_list.flatten.select { |holiday| 
+      if holiday[:date] == date && holiday[:employee_id] == employee_id
+        return true
+      end
+    }
+    false
+  end
 end
+
 
