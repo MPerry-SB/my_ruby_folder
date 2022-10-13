@@ -1,8 +1,11 @@
 class DisplayProfiles
   def filter_employee_by_age(hr_profile, age:)
+    results = []
     hr_profile.select do |_key, hash|
-      hash[:age] == age
-      return hash[:employee_id]
+      if hash[:age] == age
+        results << hash[:employee_id]
+      end
     end
+    results
   end
 end
