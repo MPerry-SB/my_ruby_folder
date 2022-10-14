@@ -1,6 +1,6 @@
 class EmployeeProfiles
  def initialize(employee_profiles = {})
-
+  @employee_profiles = employee_profiles
  end
   def filter_by_age(employee_profiles, age:)
     employee_profiles
