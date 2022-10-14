@@ -7,6 +7,10 @@ class EmployeeProfiles
     results
   end
 
+  def filter_by_age(hr_profile, age:)
+    filter_employee_by_age(hr_profile, age: age)
+  end
+
   def is_employee_working?(holiday_list, date, employee_id)
     holiday_list.flatten.select do |holiday|
       return true if holiday[:date] == date && holiday[:employee_id] == employee_id

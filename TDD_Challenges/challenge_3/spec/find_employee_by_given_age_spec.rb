@@ -7,7 +7,7 @@ RSpec.describe EmployeeProfiles do
       jwatson: { employee_id: 456, age: 27 }
     }
 
-    result = EmployeeProfiles.new.filter_employee_by_age(hr_profile, age: 65)
+    result = EmployeeProfiles.new.filter_by_age(hr_profile, age: 65)
 
     expect(result).to eq [111]
   end
@@ -19,7 +19,7 @@ RSpec.describe EmployeeProfiles do
       mperry: { employee_id: 123, age: 65 }
     }
 
-    result = EmployeeProfiles.new.filter_employee_by_age(hr_profile, age: 65)
+    result = EmployeeProfiles.new.filter_by_age(hr_profile, age: 65)
 
     expect(result).to eq [111, 123]
   end
