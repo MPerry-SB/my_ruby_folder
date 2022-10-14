@@ -5,10 +5,9 @@ class EmployeeProfiles
       .map {|_, employee_profile| employee_profile[:employee_id] }
   end
 
-  def is_employee_working?(holiday_list, date, employee_id)
-    holiday_list.flatten.select do |holiday|
-      return true if holiday[:date] == date && holiday[:employee_id] == employee_id
+  def is_employee_working?(holidays, date, employee_id)
+    holidays.flatten.any? do |holiday|
+      holiday[:date] == date && holiday[:employee_id] == employee_id
     end
-    false
   end
 end
