@@ -8,7 +8,11 @@ class EmployeeProfiles
   end
 
   def filter_by_age(hr_profile, age:)
-    filter_employee_by_age(hr_profile, age: age)
+    results = []
+    hr_profile.select do |_key, hash|
+      results << hash[:employee_id] if hash[:age] >= age
+    end
+    results
   end
 
   def is_employee_working?(holiday_list, date, employee_id)
