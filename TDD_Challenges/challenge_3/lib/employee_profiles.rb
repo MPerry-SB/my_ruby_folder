@@ -1,7 +1,7 @@
 class EmployeeProfiles
-  def filter_by_age(hr_profile, age:)
+  def filter_by_age(employee_profiles, age:)
     results = []
-    hr_profile.select do |_key, hash|
+    employee_profiles.select do |_key, hash|
       results << hash[:employee_id] if hash[:age] >= age
     end
     results
