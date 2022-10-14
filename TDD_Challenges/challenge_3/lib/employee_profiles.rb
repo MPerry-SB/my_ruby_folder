@@ -1,4 +1,7 @@
 class EmployeeProfiles
+ def initialize(employee_profiles = {})
+
+ end
   def filter_by_age(employee_profiles, age:)
     employee_profiles
       .select { |_, employee_profile| employee_profile[:age] >= age }
