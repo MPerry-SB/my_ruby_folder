@@ -3,7 +3,7 @@ class EmployeeProfiles
   @employee_profiles = employee_profiles
  end
   def filter_by_age(employee_profiles, age:)
-    employee_profiles
+    @employee_profiles
       .select { |_, employee_profile| employee_profile[:age] >= age }
       .map {|_, employee_profile| employee_profile[:employee_id] }
   end
