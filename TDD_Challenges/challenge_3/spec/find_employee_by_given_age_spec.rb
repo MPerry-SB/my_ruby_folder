@@ -1,14 +1,13 @@
-require './lib/display_profiles'
-
-RSpec.describe DisplayProfiles do
+require './lib/employee_profiles'
+# intro employee object for hr_profile
+RSpec.describe EmployeeProfiles do
   it 'returns one employee id filtered by age' do
     hr_profile = {
       pwu: { employee_id: 111, age: 65 },
       jwatson: { employee_id: 456, age: 27 }
     }
-    described_class = DisplayProfiles.new
 
-    result = described_class.filter_employee_by_age(hr_profile, age: 65)
+    result = EmployeeProfiles.new.filter_employee_by_age(hr_profile, age: 65)
 
     expect(result).to eq [111]
   end
@@ -19,9 +18,8 @@ RSpec.describe DisplayProfiles do
       jwatson: { employee_id: 456, age: 27 },
       mperry: { employee_id: 123, age: 65 }
     }
-    described_class = DisplayProfiles.new
 
-    result = described_class.filter_employee_by_age(hr_profile, age: 65)
+    result = EmployeeProfiles.new.filter_employee_by_age(hr_profile, age: 65)
 
     expect(result).to eq [111, 123]
   end
@@ -32,10 +30,9 @@ RSpec.describe DisplayProfiles do
       [employee_id: 222, date: '2021-12-29']
     ]
 
-    described_class = DisplayProfiles.new
     employee_id = 111
     date = '2021-12-30'
-    result = described_class.is_employee_working?(holiday_list, date, employee_id)
+    result = EmployeeProfiles.new.is_employee_working?(holiday_list, date, employee_id)
 
     expect(result).to eq true
   end
@@ -46,10 +43,9 @@ RSpec.describe DisplayProfiles do
       [employee_id: 222, date: '2021-12-29']
     ]
 
-    described_class = DisplayProfiles.new
     employee_id = 222
     date = '2021-12-30'
-    result = described_class.is_employee_working?(holiday_list, date, employee_id)
+    result = EmployeeProfiles.new.is_employee_working?(holiday_list, date, employee_id)
 
     expect(result).to eq false
   end

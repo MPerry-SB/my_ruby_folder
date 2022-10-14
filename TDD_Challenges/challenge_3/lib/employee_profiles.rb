@@ -1,4 +1,4 @@
-class DisplayProfiles # code smell? class doesn't describe the domain
+class EmployeeProfiles
   def filter_employee_by_age(hr_profile, age:)
     results = []
     hr_profile.select do |_key, hash|
