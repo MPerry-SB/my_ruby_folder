@@ -1,25 +1,25 @@
 require './lib/employee_profiles'
-# intro employee object for hr_profile
+# intro employee object for employee_profiles
 RSpec.describe EmployeeProfiles do
   it 'returns one employee id filtered by age' do
-    hr_profile = {
+    employee_profiles = {
       pwu: { employee_id: 111, age: 65 },
       jwatson: { employee_id: 456, age: 27 }
     }
 
-    result = EmployeeProfiles.new.filter_by_age(hr_profile, age: 65)
+    result = EmployeeProfiles.new.filter_by_age(employee_profiles, age: 65)
 
     expect(result).to eq [111]
   end
 
   it 'returns two employee ids filtered by age' do
-    hr_profile = {
+    employee_profiles = {
       pwu: { employee_id: 111, age: 65 },
       jwatson: { employee_id: 456, age: 27 },
       mperry: { employee_id: 123, age: 65 }
     }
 
-    result = EmployeeProfiles.new.filter_by_age(hr_profile, age: 65)
+    result = EmployeeProfiles.new.filter_by_age(employee_profiles, age: 65)
 
     expect(result).to eq [111, 123]
   end
