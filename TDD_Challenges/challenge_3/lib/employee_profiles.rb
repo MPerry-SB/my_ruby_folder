@@ -1,10 +1,8 @@
 class EmployeeProfiles
   def filter_by_age(employee_profiles, age:)
-    profiles = []
-    employee_profiles.select do |_, employee_profile|
-      profiles << employee_profile[:employee_id] if employee_profile[:age] >= age
-    end
-    profiles
+    employee_profiles
+      .select { |_, employee_profile| employee_profile[:age] >= age }
+      .map {|_, employee_profile| employee_profile[:employee_id] }
   end
 
   def is_employee_working?(holiday_list, date, employee_id)
